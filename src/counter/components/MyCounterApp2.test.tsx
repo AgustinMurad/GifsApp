@@ -30,6 +30,7 @@ describe("MyCounterApp2", () => {
   });
 
   test("should call handleAdd if button is clicked", () => {
+    render(<MyCounterApp />);
     const buttonAdd = screen.getByRole("button", { name: "+1" });
     fireEvent.click(buttonAdd);
     expect(handleAddMock).toHaveBeenCalled();

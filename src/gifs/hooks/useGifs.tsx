@@ -18,6 +18,7 @@ export const useGifs = () => {
 
     const gifs = await getGifsByQuery(search);
     setGifs(gifs);
+    gifsCache.current[search] = gifs;
   };
 
   const handleSearch = async (query: string) => {
@@ -42,9 +43,10 @@ export const useGifs = () => {
   return {
     //Props
     gifs,
+    previousSearches,
+
     //Methods
     handleSearch,
     handleSearchClicked,
-    previousSearches,
   };
 };
